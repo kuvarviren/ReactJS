@@ -3,21 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 const lakeList = [
-  "Virthur",
-  "BTM",
-  "Thippasandra"
-];
+  {id:1,name:"Virthur", trailhead:"Echo"},
+  {id:2,name:"BTM",trailhead:"BayView"},
+  {id:3,name:"Thippasandra",trailhead:"OceanView"},
+ ];
 
 function App({lakes}){
   return (
     <div>
-      <ul>
       {
         lakes.map(lake=>(
-          <li>{lake}</li>
-        ))
+          <div key={lake.id}>
+            <h1>{lake.name}</h1>
+            <p>{lake.trailhead}</p>
+          </div>))
       }
-      </ul>
     </div>
   );
 }
