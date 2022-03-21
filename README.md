@@ -1,2 +1,2 @@
 # ReactJS
-This repo is to practice React.
+This repo is for ReactJS.
