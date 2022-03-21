@@ -2,11 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Hello(){
-  return <h1>Welcome to React!</h1>
+function Hello(props){
+  console.log(props);
+  return (
+    <div>
+      <h1>Welcome to {props.library}!</h1>
+      <p>{props.message}</p>
+      <p>props total = {props.number}</p>
+    </div>
+  );
 }
 ReactDOM.render(
-  <Hello/>,
+  <Hello 
+  library="React" 
+  message="Have fun!"
+  number = {5}
+  />,
   document.getElementById('root')
 );
 
