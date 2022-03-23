@@ -1,23 +1,20 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Lake(){
-  return <h1>Lake!</h1>;
-}
-function Ski(){
-  return <h1>Ski!</h1>;
-}
-function App({lakes}){
+function App(){
+  const [status,setState] = useState("Open");
   return (
-    <React.Fragment>
-      <Lake />
-      <Ski />
-    </React.Fragment>
+    <div>
+      <h1>status: {status}</h1>
+      <button onClick={()=>setState("Closed")}>Closed</button>
+      <button onClick={()=>setState("Open")}>Open</button>
+    </div>
   );
 }
 ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
+
 
