@@ -1,19 +1,19 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function App(){
-  const [status,setState] = useState("Open");
+function Checkbox(){
+  const [checked,setCheck] = useState(false);
+  //To print the value of checked state
+  useEffect = alert(`The value of checked: ${checked.toString()}`);
   return (
-    <div>
-      <h1>status: {status}</h1>
-      <button onClick={()=>setState("Closed")}>Closed</button>
-      <button onClick={()=>setState("Open")}>Open</button>
-    </div>
+    <>
+     <input type="checkbox" value={checked} onChange={()=>setCheck(checked=>!checked)}/> {checked ? "Agree" : "Disagree"}
+    </>
   );
 }
 ReactDOM.render(
-  <App />,
+  <Checkbox />,
   document.getElementById('root')
 );
 
