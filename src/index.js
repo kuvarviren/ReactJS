@@ -1,17 +1,27 @@
-import React,{useReducer} from 'react';
+import React,{useState,useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Checkbox(){
-  const [checked,toggle] = useReducer(checked=>!checked,false);
-  return (
-    <>
-     <input type="checkbox" value={checked} onChange={toggle}/> {checked ? "Agree" : "Disagree"}
-    </>
+function GitHubUser({login}){
+  const [data,setData] = useState(null);
+  useEffect(()=>{
+    fetch(`https://api.github.com/users/${login}`)
+    .then(res=>res.json())
+    .then(setData)
+    .catch(console.error)
+  },[]);
+  if(data){
+    return (JSON.stringify(data));
+  }
+  return null;
+}
+function App(){
+    return (
+    <GitHubUser login="moonhighway" />
   );
 }
 ReactDOM.render(
-  <Checkbox />,
+  <App />,
   document.getElementById('root')
 );
 
